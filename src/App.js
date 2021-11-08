@@ -1,25 +1,35 @@
+
+
 import logo from './logo.svg';
 import './App.css';
+
+import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+
+import Game from './components/game'
+import Great from './components/great'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BrowserRouter>
+        
+         <ul style={{display:'flex'}}>
+          <Link to="/">
+            <li style={{listStyle:'none',marginLeft:30}}>Game</li>
+          </Link>
+          <Link to="/Great">
+            <li style={{listStyle:'none',marginLeft:30}}>Great</li>
+          </Link>
+         </ul>
+        
+        <Routes>
+          <Route path="/" element={<Game />}/>
+          <Route path="/Great" element={<Great />}/>
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App;
